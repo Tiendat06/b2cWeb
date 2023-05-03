@@ -32,7 +32,7 @@
                             if(!empty($_POST['username']) && !empty($_POST['password'])){
                                 $username = $_POST['username'];
                                 $pass = $_POST['password'];
-                                if(checkLogin($username, $pass)){
+                                if(checkLogin($username, md5($pass))){
                                     $_SESSION['login_user'] = $username;
                                     $_SESSION['login_pass'] = $pass;
                                     header('location: index.php?page=products');

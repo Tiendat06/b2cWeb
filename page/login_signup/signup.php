@@ -11,27 +11,6 @@
                     </div>
 
                     <div class="login__items">
-                        <p class="login__DOB login__content--para">DOB</p>
-                        <input type="date" class="login__items--inp" name="DOB" id="DOB">
-                    </div>
-
-                    <div class="login__items">
-                        <p class="login__gender login__content--para">Gender</p>
-                        
-                        <div class="signup__content--gender">
-                            <label for="Male" class="signup__content--male login__content--para">
-                                <input type="radio" class="login__items--inp signup__content--inp" name="gender" id="Male" value="Male">
-                                Male
-                            </label>
-                            <label for="Female" class="signup__content--female login__content--para">
-                                <input type="radio" class="login__items--inp signup__content--inp" name="gender" id="Female" value="Female">
-                                Female
-                            </label>
-                        </div>
-
-                    </div>
-
-                    <div class="login__items">
                         <p class="login__password login__content--para">Address</p>
                         <input type="text" class="login__items--inp" name="address" id="address">
                     </div>
@@ -54,6 +33,27 @@
                     <div class="login__items">
                         <p class="login__password login__content--para">Password</p>
                         <input type="password" class="login__items--inp" name="password" id="password">
+                    </div>
+
+                    <div class="login__items">
+                        <p class="login__DOB login__content--para">DOB</p>
+                        <input type="date" class="login__items--inp" name="DOB" id="DOB">
+                    </div>
+
+                    <div class="login__items">
+                        <p class="login__gender login__content--para">Gender</p>
+                        
+                        <div class="signup__content--gender">
+                            <label for="Male" class="signup__content--male login__content--para">
+                                <input type="radio" class="login__items--inp signup__content--inp" name="gender" id="Male" value="Male">
+                                Male
+                            </label>
+                            <label for="Female" class="signup__content--female login__content--para">
+                                <input type="radio" class="login__items--inp signup__content--inp" name="gender" id="Female" value="Female">
+                                Female
+                            </label>
+                        </div>
+
                     </div>
 
                     <div class="login__more">

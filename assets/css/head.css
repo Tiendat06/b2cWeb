@@ -83,8 +83,28 @@
     border: 1px solid #fff;
     font-weight: bold;
     border-radius: 5px;
-    width: 20%;
+    width: 30%;
     font-size: 1.5rem;
+}
+
+.signup__content--gender{
+    display: flex;
+    justify-content: end;
+}
+
+.signup__content--male,
+.signup__content--female{
+    display: flex;
+    padding: 5px;
+    align-items: center;
+}
+
+.signup__content--inp{
+    margin-bottom: 0;
+}
+
+.signup__row{
+    background: url('../img/bg_signup.jpg');
 }
 
 /* ==============================<<header>>======================= */

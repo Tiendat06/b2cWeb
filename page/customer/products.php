@@ -75,7 +75,14 @@
                                     <div class="products_info">
                                         <h4 class="products__title"><?= $product_Name ?></h4>
                                         <p class="products__para"><?= number_format(intval($product_Price)*((110/100) - $Cus_Discount)) ?><span class="products__unit"> <?= $product_Unit ?></span></p>
-                                        <p style="text-decoration:line-through; font-style:italic;" class="text-muted products__para"><?= number_format(floatval($product_Price)*(110/100)) ?><span class="products__unit"> <?= $product_Unit ?></span></p>
+                                        <?php
+                                            if(isset($_SESSION['login_user'])){
+                                                ?>
+                                                
+                                                <p style="text-decoration:line-through; font-style:italic;" class="text-muted products__para"><?= number_format(floatval($product_Price)*(110/100)) ?><span class="products__unit"> <?= $product_Unit ?></span></p>
+                                                <?php
+                                            }
+                                        ?>
                                         <div class="products__remaining">
                                             <p class="products__para">Remaining:</p>
                                             <p class="products__para"><?= $product_Quan ?></p>

@@ -11,8 +11,11 @@
             }
             $productID = $_SESSION['productID'];
         }
-
-        $Cus_Discount = $_SESSION['cus_Discount'];
+        if(isset($_SESSION['cus_Discount'])){
+            $Cus_Discount = $_SESSION['cus_Discount'];
+        }else{
+            $Cus_Discount = 0;
+        }
 
         $dataProduct = getProductByProductID($productID);
         $product_Name = $dataProduct['Product_Name'];

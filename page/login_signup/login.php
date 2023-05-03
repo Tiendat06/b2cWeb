@@ -34,7 +34,7 @@
                                 $pass = $_POST['password'];
                                 if(checkLogin($username, md5($pass))){
                                     $_SESSION['login_user'] = $username;
-                                    $_SESSION['login_pass'] = $pass;
+                                    $_SESSION['login_pass'] = md5($pass);
                                     header('location: index.php?page=products');
                                 }else{
                                     echo '<p style="color: red; text-align:center; font-weight: bold;" >Invalid login !</p>';

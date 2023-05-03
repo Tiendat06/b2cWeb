@@ -628,4 +628,23 @@
         return $new_url;
     }
 
+
+    // function updateDB($username, $pass){
+    //     $pass = md5($pass);
+    //     $conn = open_Database();
+    //     $query = "update CUSTOMER_ACCOUNT
+    //     set Account_Password = '$pass' 
+    //     where UserName = '$username'";
+
+    //     sqlsrv_query($conn, $query);
+    //     sqlsrv_close($conn);
+    // }
+
+    // updateDB('anhthy06', 'anhthy@123');
+    // updateDB('phong2202', 'phong@123');
+    // updateDB('tiendat09', 'dat@123');
+    // Tiendat06, 123456
+
+
 ?>
+

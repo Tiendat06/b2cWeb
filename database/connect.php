@@ -29,6 +29,69 @@
         return $data;
     }
 
+    function signUp($Cus_Name, $Cus_DOB, $Cus_Gender, $Cus_Address, $Cus_Email, $Cus_Phone,
+    $username, $Cus_Pass){
+        $conn = open_Database();
+        $query = "select max(Customer_ID) as max_id from CUSTOMER";
+        $result = sqlsrv_query($conn, $query);
+        $row = sqlsrv_fetch_array($result);
+        $prev_id = $row['max_id'];
+
+        if ($prev_id) {
+            $stt = (int) substr($prev_id, 1) + 1;
+        } else {
+            $stt = 1;
+        }
+
+        $Cus_ID = sprintf("C%09d", $stt);
+
+        $query = "insert into CUSTOMER values('$Cus_ID', '$Cus_Name', '$Cus_DOB', '$Cus_Gender', '$Cus_Address', '$Cus_Email', '$Cus_Phone')";
+        sqlsrv_query($conn, $query);
+
+        $query = "insert into CUSTOMER_ACCOUNT values('$username', '$Cus_ID', '$Cus_Pass', '1')";
+        sqlsrv_query($conn, $query);
+        sqlsrv_close($conn);
+    }
+
+    function checkUserName($username): bool{
+        $conn = open_Database();
+        $query = "select * from CUSTOMER_ACCOUNT where UserName = '$username'";
+
+        $result = sqlsrv_query($conn, $query);
+        $row = sqlsrv_fetch_array($result);
+        if($row){
+            return true;
+        }
+        sqlsrv_close($conn);
+        return false;
+    }
+
+    function checkEmail($email): bool{
+        $conn = open_Database();
+        $query = "select * from CUSTOMER where Customer_Email = '$email'";
+
+        $result = sqlsrv_query($conn, $query);
+        $row = sqlsrv_fetch_array($result);
+        if($row){
+            return true;
+        }
+        sqlsrv_close($conn);
+        return false;
+    }
+
+    function checkPhone($phone): bool{
+        $conn = open_Database();
+        $query = "select * from CUSTOMER where Customer_Phone = '$phone'";
+
+        $result = sqlsrv_query($conn, $query);
+        $row = sqlsrv_fetch_array($result);
+        if($row){
+            return true;
+        }
+        sqlsrv_close($conn);
+        return false;
+    }
+
     // check
     function getProductsLimitSix(): array{
         $conn = open_Database();

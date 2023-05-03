@@ -21,7 +21,7 @@
 
                     <div class="login__more">
                         <label for="remember" class="login__remember">
-                            <input type="checkbox" name="" class="login__more--inp" id="remember">
+                            <input type="checkbox" name="" class="login__more--inp" id="remember" required>
                             Remember me
                         </label>
 

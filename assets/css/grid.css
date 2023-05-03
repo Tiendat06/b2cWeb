@@ -1,0 +1,419 @@
+.container{
+    width: 100%;
+    max-width: 1200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.row{
+    display: -ms-flexbox;   /* internet explorer 10, 11 */
+    -ms-flex-wrap: wrap;    /* internet explorer 10, 11 */
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col{
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+/* Mobile */
+@media (max-width: 740px) {
+    .col-sm-0{
+        display: none;
+    }
+
+    .col-sm-1-2{
+        flex: 0 0 7%;
+        max-width: 7%;
+    }
+
+    .col-sm-1{
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
+    .col-sm-2 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    .col-sm-2-4 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    .col-sm-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .col-sm-4 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+
+    .col-sm-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+
+    .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-sm-7 {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+
+    .col-sm-8 {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+
+    .col-sm-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .col-sm-10 {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+
+    .col-sm-11 {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+
+    .col-sm-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .col-sm-o-1 {
+        margin-left: 8.33333%;
+    }
+
+    .col-sm-o-2 {
+        margin-left: 16.66667%;
+    }
+
+    .col-sm-o-3 {
+        margin-left: 25%;
+    }
+
+    .col-sm-o-4 {
+        margin-left: 33.33333%;
+    }
+
+    .col-sm-o-5 {
+        margin-left: 41.66667%;
+    }
+
+    .col-sm-o-6 {
+        margin-left: 50%;
+    }
+
+    .col-sm-o-7 {
+        margin-left: 58.33333%;
+    }
+
+    .col-sm-o-8 {
+        margin-left: 66.66667%;
+    }
+
+    .col-sm-o-9 {
+        margin-left: 75%;
+    }
+
+    .col-sm-o-10 {
+        margin-left: 83.33333%;
+    }
+
+    .col-sm-o-11 {
+        margin-left: 91.66667%;
+    }
+
+    /* ============================= Tâm ========================== */
+}
+
+/* Tablet */
+@media (min-width: 741px) and (max-width: 1023px) {
+    .container{
+        width: 644px;
+    }
+
+    .row {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+
+    .col {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .col-md-0{
+        display: none;
+    }
+
+    .col-md-1{
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
+
+    .col-md-2 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    .col-md-2-4 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .col-md-4 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+
+    .col-md-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-md-7 {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+
+    .col-md-8 {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+
+    .col-md-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .col-md-10 {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+
+    .col-md-11 {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+
+    .col-md-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .col-md-o-1 {
+        margin-left: 8.33333%;
+    }
+
+    .col-md-o-2 {
+        margin-left: 16.66667%;
+    }
+
+    .col-md-o-3 {
+        margin-left: 25%;
+    }
+
+    .col-md-o-4 {
+        margin-left: 33.33333%;
+    }
+
+    .col-md-o-5 {
+        margin-left: 41.66667%;
+    }
+
+    .col-md-o-6 {
+        margin-left: 50%;
+    }
+
+    .col-md-o-7 {
+        margin-left: 58.33333%;
+    }
+
+    .col-md-o-8 {
+        margin-left: 66.66667%;
+    }
+
+    .col-md-o-9 {
+        margin-left: 75%;
+    }
+
+    .col-md-o-10 {
+        margin-left: 83.33333%;
+    }
+
+    .col-md-o-11 {
+        margin-left: 91.66667%;
+    }
+
+    /* ============================= Tâm ========================== */
+
+}
+
+/* PC */
+@media (min-width: 1024px) {
+    .container{
+        width: 984px;
+    }
+
+    .row {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+
+    .col {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .col-l-0{
+        display: none;
+    }
+
+    .col-l-1 {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
+
+    .col-l-2 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    /* kích thước sản phẩm */
+    .col-l-2-4 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    .col-l-3-4{
+        
+    }
+
+    .col-l-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .col-l-4 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+
+    .col-l-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+
+    .col-l-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-l-7 {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+
+    .col-l-8 {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+
+    .col-l-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .col-l-10 {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+
+    .col-l-11 {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+
+    .col-l-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .col-l-o-1 {
+        margin-left: 8.33333%;
+    }
+
+    .col-l-o-2 {
+        margin-left: 16.66667%;
+    }
+
+    .col-l-o-3 {
+        margin-left: 25%;
+    }
+
+    .col-l-o-4 {
+        margin-left: 33.33333%;
+    }
+
+    .col-l-o-5 {
+        margin-left: 41.66667%;
+    }
+
+    .col-l-o-6 {
+        margin-left: 50%;
+    }
+
+    .col-l-o-7 {
+        margin-left: 58.33333%;
+    }
+
+    .col-l-o-8 {
+        margin-left: 66.66667%;
+    }
+
+    .col-l-o-9 {
+        margin-left: 75%;
+    }
+
+    .col-l-o-10 {
+        margin-left: 83.33333%;
+    }
+
+    .col-l-o-11 {
+        margin-left: 91.66667%;
+    }
+
+    /* ============================= Tâm ========================== */
+
+}

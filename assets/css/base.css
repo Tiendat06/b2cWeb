@@ -1,0 +1,216 @@
+:root{
+    --header-height: 120px;
+    --bars-background-color: #fdf7dc;
+    --bars-background-rgba-color: rgba(253, 247, 220, 0.9);
+    --header-about-hover: #2e2e38;
+    --footer-text: #6c6b66;
+    --footer-bg: #edf2f9;
+    --text-in-account: #d5d1d1;
+    --text-in-grid: #505160;
+    --bg-color: #f7efe2 /*#FFE4C4 /*#FAEBD7 #f8e1c3 #f8e3cc*/;
+    --text-highlight: /*#b9d432*/ #a6b2c9;
+    --input-user-color: #37424b;
+    --booking-page-color: #14252d;
+    --booking-btn: #f84464;
+    --booked-seat: #e71a0f;
+    --choosing-seat: #727171;
+    --standard-border: #c3cc26;
+    --vip-border: #130bf1;
+    --couple-border: #ff62bb;
+    
+    /*  */
+    --bg-color: #005d4f;
+}
+
+*{
+    box-sizing: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.bg--outside{
+    padding: 20px;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.d-none{
+    display: none;
+}
+
+html{
+    font-size: 62.5%;
+    /* => 1rem = 10px */
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    /* overflow-x: auto; */
+}
+
+body{
+    margin: 0;
+}
+
+p{
+    font-size: 1.6rem;
+}
+
+option{
+    text-align: center;
+}
+
+/* =============<<Manager>>================ */
+.Lock{
+    background-color: var(--booked-seat);
+}
+
+.translate-down{
+    animation: slideDown linear 0.3s;
+}
+
+/* ======================================== */
+
+.border-success{
+    border: 3px solid #0d9d34;
+}
+
+.cluster-click{
+    color: var(--booked-seat)!important;
+}
+
+
+.isClick{
+    background-color: #ccc;
+    color: #000;
+}
+
+.choosing-seat{
+    background-color: var(--choosing-seat);
+}
+
+.booked-seat{
+    background-color: var(--booked-seat);
+}
+
+.Book{
+    background-color: var(--booked-seat);
+    pointer-events: none;
+}
+
+.disabled-tag{
+    pointer-events: none;
+}
+
+.moveLinearClass{
+    animation: moveLinearLeft linear 1s;
+}
+
+@keyframes slideDown {
+    from{
+        transform: translateX(100%) translateY(0%);
+    }
+    to{
+        transform: translateX(100%) translateY(200%);
+    }
+}
+
+@keyframes moveLinearLeft {
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveLinearRight {
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+        display: block;
+    }
+    to{
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0;
+        display: none;
+    }
+    to{
+        opacity: 1;
+        display: block;
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes slideInNavbar {
+    from{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInAbout {
+    from{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes sliderOut {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes rotateDown {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes rotateUp {
+    from{
+        transform: rotate(90deg);
+    }
+    to{
+        transform: rotate(0);
+    }
+}
+
+/* ============================= Tâm ============================= */

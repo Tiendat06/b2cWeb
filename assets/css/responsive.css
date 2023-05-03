@@ -1,0 +1,23 @@
+
+/* Mobile */
+@media (max-width: 740px) {
+    /* describe */
+    .describe__title{
+        text-align: center;
+    }
+}
+
+/* Tablet */
+@media (min-width: 741px) and (max-width: 1023px) {
+    /* describe */
+    .describe__info--freeship{
+        width: 100%;
+    }
+
+}
+
+/* PC */
+@media (min-width: 1024px) {
+
+    /* Tâm */
+}

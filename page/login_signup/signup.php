@@ -72,11 +72,11 @@
                             && !empty($_POST['email']) && !empty($_POST['phone'])
                             && !empty($_POST['username']) && !empty($_POST['password'])){
                                 if(checkUserName($_POST['username'])){
-                                    echo '<p style="color: red; font-weight:bold;" id="info">Username has been used</p>';
+                                    echo '<p style="text-align: center; color: red; font-weight:bold;" id="info">Username has been used</p>';
                                 }else if(checkEmail($_POST['email'])){
-                                    echo '<p style="color: red; font-weight:bold;" id="info">Email has been used</p>';
+                                    echo '<p style="text-align: center; color: red; font-weight:bold;" id="info">Email has been used</p>';
                                 }else if(checkPhone($_POST['phone'])){
-                                    echo '<p style="color: red; font-weight:bold;" id="info">Phone number has been used</p>';
+                                    echo '<p style="text-align: center; color: red; font-weight:bold;" id="info">Phone number has been used</p>';
                                 }else{
 
                                     $name = $_POST['name'];
@@ -89,11 +89,11 @@
                                     $password = $_POST['password'];
 
                                     signUp($name, $DOB, $gender, $address, $email, $phone, $username, md5($password));
-                                    echo '<p style="color: red; font-weight:bold;" id="info">Register successfully</p>';
+                                    echo '<p style="text-align: center; color: red; font-weight:bold;" id="info">Register successfully</p>';
                                 }
 
                             }else{
-                                echo '<p style="color: red; font-weight:bold;" id="info">Please enter full informations</p>';
+                                echo '<p style="text-align: center; color: red; font-weight:bold;" id="info">Please enter full informations</p>';
 
                             }
                         }

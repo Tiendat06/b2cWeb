@@ -23,6 +23,7 @@
                         $total_money = $row['Total_Money'];
                         $Product_Name = $row['Product_Name'];
                         $Remaining_Quan = $row['Remain_Quantities'];
+                        // echo $Remaining_Quan;
                         // $_SESSION[$Quan] = $Quan;
                         $_SESSION['OrderList_ID'] = $Orderlist_ID;
                         $Unit = $row['Unit'];
@@ -33,7 +34,7 @@
                         <img class="package__content--img w-100" src="./assets/img/<?= $Product_Img ?>" alt="" srcset="">
                         <p class="package__content--para"><?= $Product_Name ?></p>
                         <p class="package__content--para">Quantity: <?= $Quan ?></p>
-                        <p class="package__content--para">Remain Quantity: <?php echo intval($Remaining_Quan) ?></p>
+                        <p class="package__content--para">Remain Quantity: <?php echo intval(getProdutQuantity($product_ID)) ?></p>
                         <p class="package__content--para package__content--para-price">
                             <?= number_format($total_money) ?> <span class="package__content--unit"><?= $Unit ?></span>
                         </p>
@@ -146,7 +147,7 @@
                                         <img class="products__img" src="./assets/img/<?= $product_img ?>" alt="" srcset="">
                                         <div class="products_info">
                                             <h4 class="products__title"><?= $product_Name ?></h4>
-                                            <p class="products__para"><?= floatval($product_Price)*(110/100) ?><span class="products__unit"> <?= $product_Unit ?></span></p>
+                                            <p class="products__para"><?= number_format(($product_Price)*(110/100)) ?><span class="products__unit"> <?= $product_Unit ?></span></p>
                                             <div class="products__remaining">
                                                 <p class="products__para">Remaining:</p>
                                                 <p class="products__para"><?= $product_Quan ?></p>

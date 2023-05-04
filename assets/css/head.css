@@ -107,6 +107,167 @@
     background: url('../img/bg_signup.jpg');
 }
 
+/* ===========================<<forgot pass>>======================== */
+
+.forgot-pass{
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    background: url('../img/bg_login.jpeg');
+    color: #fff;
+
+}
+
+.forgot-pass__title{
+    text-align: center;
+    color: #fff;
+}
+
+.forgot-pass__content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.forgot-pass__content--para{
+    width: 100%;
+    text-align: center;
+}
+
+.forgot-pass__mail{
+    width: 70%;
+    text-align: center;
+    padding: 10px;
+    outline-color: var(--bg-color);
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.5rem;
+}
+
+.forgot-pass__btn{
+    width: 31%;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    /* border: 2px solid var(--bg-color); */
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+}
+.forgot-pass__btn:hover{
+    color: #fff;
+}
+
+.send-mail__container{
+    background: url('../img/bg_login.jpeg');
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.send-mail__content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.send-mail__content--para{
+    width: 100%;
+    text-align: center
+}
+
+.send-mail__inp{
+    width: 70%;
+    text-align: center;
+    padding: 10px;
+    outline-color: var(--bg-color);
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 1.5rem;
+}
+
+.send-mail__btn{
+    width: 60%;
+}
+
+.send-mail__btn--verify,
+.send-mail__btn--resend{
+    width: 30%;
+    margin-top: 20px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.change-pass__container{
+    background: url('../img/bg_login.jpeg');
+}
+
+.change-pass__title{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #fff;
+    /* padding: 20px; */
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fff;
+    font-size: 2.3rem;
+}
+
+.change-pass__content{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.change-pass__outter{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* display: flex; */
+    
+    margin: 20px 0 20px 0;
+}
+
+.change-pass__para{
+    font-weight: bold;
+    color: #fff;
+    width: 200px;
+}
+
+.change-pass__input{
+    width: 60%;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 1.8rem;
+    border-radius: 5px;
+}
+
+.change-pass__btn{
+    width: 25%;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 5px;
+    /* background-color: var(--input-user-color); */
+    color: #fff;
+    padding: 15px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    /* text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); */
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin: 20px auto 0 auto; */
+
+}
+
 /* ==============================<<header>>======================= */
 
 .header{
@@ -544,6 +705,7 @@
     border: 1px solid var(--bg-color);
     border-radius: 5px;
     margin-top: 20px!important;
+    margin-bottom: 20px;
     width: 20%;
 }
 

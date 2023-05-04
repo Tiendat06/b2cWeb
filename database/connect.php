@@ -48,7 +48,7 @@
         $query = "insert into CUSTOMER values('$Cus_ID', '$Cus_Name', '$Cus_DOB', '$Cus_Gender', '$Cus_Address', '$Cus_Email', '$Cus_Phone')";
         sqlsrv_query($conn, $query);
 
-        $query = "insert into CUSTOMER_ACCOUNT values('$username', '$Cus_ID', '$Cus_Pass', '1')";
+        $query = "insert into CUSTOMER_ACCOUNT values('$username', '$Cus_ID', '$Cus_Pass', '1', null, null)";
         sqlsrv_query($conn, $query);
         sqlsrv_close($conn);
     }
@@ -131,6 +131,95 @@
         }
         sqlsrv_close($conn);
         return false;
+    }
+
+    function checkAccCodeForgot($code, $Cus_ID):bool{
+        $conn = open_Database();
+        $query = "select * from CUSTOMER_ACCOUNT
+        where code_forgot_pass = '$code'
+        and Customer_ID = '$Cus_ID'";
+
+        $result = sqlsrv_query($conn, $query);
+        $row = sqlsrv_fetch_array($result);
+        if($row){
+            return true;
+        }
+        sqlsrv_close($conn);
+        return false;
+    }
+
+    function updateAccCodeForgot($code, $Cus_ID, $date){
+        $conn = open_Database();
+        $query = "update CUSTOMER_ACCOUNT
+        set code_forgot_pass = '$code',
+        Date_Create_Code_Forgot = '$date'
+        where Customer_ID = '$Cus_ID'";
+
+        sqlsrv_query($conn, $query);
+        sqlsrv_close($conn);
+    }
+
+    function getCusByEmail($email){
+        $conn = open_Database();
+        $query = "select * from CUSTOMER, CUSTOMER_ACCOUNT 
+        where Customer_Email = '$email' and
+        CUSTOMER.Customer_ID = CUSTOMER_ACCOUNT.Customer_ID";
+        $data = array();
+
+        $result = sqlsrv_query($conn, $query);
+        while($row = sqlsrv_fetch_array($result)){
+            $data = $row;
+        }
+        
+        sqlsrv_close($conn);
+        return $data;
+    }
+
+    function updatePassWord($pass, $Cus_ID){
+        $conn = open_Database();
+        $query = "update CUSTOMER_ACCOUNT
+        set Account_Password = '$pass'
+        where Customer_ID = '$Cus_ID'";
+
+        sqlsrv_query($conn, $query);
+        sqlsrv_close($conn);
+    }
+
+    function updateAccCodeForgotAgain($code, $Cus_ID){
+        $conn = open_Database();
+        $query = "update CUSTOMER_ACCOUNT
+        set code_forgot_pass = '$code'
+        where Customer_ID = '$Cus_ID'";
+
+        sqlsrv_query($conn, $query);
+        sqlsrv_close($conn);
+    }
+
+    function checkCodeForgotIsEmpty($username): bool{
+        $conn = open_Database();
+        $query = "select * from CUSTOMER_ACCOUNT
+        where code_forgot_pass is null 
+        and UserName = '$username'";
+        $result = sqlsrv_query($conn, $query);
+        $row = sqlsrv_fetch_array($result);
+        if($row){
+            return true;
+        }
+        sqlsrv_close($conn);
+        return false;
+    }
+
+    function deleteCodeForgotOutOfDay($username){
+        if(!checkCodeForgotIsEmpty($username)){
+            $conn = open_Database();
+            $date = date('Y-m-d', strtotime("+1 day"));
+            $query = "update CUSTOMER_ACCOUNT
+            set code_forgot_pass = null
+            where Date_Create_Code_Forgot = '$date'
+            and UserName = '$username' ";
+            sqlsrv_query($conn, $query);
+            sqlsrv_close($conn);
+        }
     }
     
     function getName($username): string{
@@ -599,6 +688,36 @@
         // Tạo URL mới
         $new_url = $url_parts['scheme'] . '://' . $url_parts['host'] . $url_parts['path'] . '?' . $new_query_string;
         return $new_url;
+    }
+
+    function deleteURL($name): string{
+        $current_url = "http";
+        if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+            $current_url .= "s";
+        $current_url .= "://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+        // echo $current_url;
+        $url = $current_url;
+
+        // Phân tích URL và chuỗi query
+        $url_parts = parse_url($url);
+        parse_str($url_parts['query'], $query_parts);
+        unset($query_parts[$name]);
+
+        $new_query_string = http_build_query($query_parts);
+
+        // Tạo URL mới
+        $new_url = $url_parts['scheme'] . '://' . $url_parts['host'] . $url_parts['path'] . '?' . $new_query_string;
+        return $new_url;
+    }
+
+    function createRandomCode($length) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $code = '';
+        for ($i = 0; $i < $length; $i++) {
+            $code .= $characters[mt_rand(0, strlen($characters) - 1)];
+        }
+        return $code;
     }
     
     function getNewURL(): string{

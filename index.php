@@ -1,6 +1,7 @@
 <?php
     ob_start();
     session_start();
+    
     require_once('./database/connect.php');
 ?>
 
@@ -60,6 +61,12 @@
                 case 'check_goods': include('./page/customer/check_goods.php');
                     break;
                 case 'check_goods_contact': include('./page/customer/check_good_model/check_goods_contact.php');
+                    break;
+                case 'forgot_pass': include('./page/login_signup/forgot_pass.php');
+                    break;
+                case 'forgot_pass_send_mail': include('./page/login_signup/forgot_pass_model/forgot_pass_send_mail.php');
+                    break;
+                case 'forgot_pass_change': include('./page/login_signup/forgot_pass_model/forgot_pass_change.php');
                     break;
                 default:
                     include('./page/customer/products.php');

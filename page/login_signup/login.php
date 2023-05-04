@@ -25,7 +25,7 @@
                             Remember me
                         </label>
 
-                        <a href="" class="login__more--forgot">Forgot password?</a>
+                        <a href="?page=forgot_pass" class="login__more--forgot">Forgot password?</a>
                     </div>
                     <?php
                         if(isset($_POST['login__btn'])){

@@ -3,6 +3,7 @@
     <?php
     if(isset($_SESSION['login_user'])){
         $cus_Name = $_SESSION['login_user'];
+        deleteCodeForgotOutOfDay($cus_Name);
     }
     // else{
     //     // header('location: index.php?page=login');
@@ -77,7 +78,7 @@
         <header class="header__bottom">
             <div class="container header__container">
                 <div class="row header__content">
-                    <a href="?page=main_page" class="header__content--img col-l-1 col-md-2 col-sm-2">
+                    <a href="?page=products" class="header__content--img col-l-1 col-md-2 col-sm-2">
                         <img class="header__img" src="./assets/img/logo.png" alt="" srcset="">
                     </a>
                     <div class="header__content--search col-l-8 col-md-7 col-sm-7">

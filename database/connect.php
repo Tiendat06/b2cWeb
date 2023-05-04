@@ -758,11 +758,12 @@
     //     sqlsrv_query($conn, $query);
     //     sqlsrv_close($conn);
     // }
-
     // updateDB('anhthy06', 'anhthy@123');
     // updateDB('phong2202', 'phong@123');
     // updateDB('tiendat09', 'dat@123');
     // Tiendat06, 123456
+    // [code_forgot_pass]
+    // ,[Date_Create_Code_Forgot]
 
 
 ?>

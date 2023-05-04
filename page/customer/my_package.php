@@ -35,6 +35,7 @@
                         <p class="package__content--para"><?= $Product_Name ?></p>
                         <p class="package__content--para">Quantity: <?= $Quan ?></p>
                         <p class="package__content--para">Remain Quantity: <?php echo intval(getProdutQuantity($product_ID)) ?></p>
+                        <!-- <input type="hidden" name="" id="remain_quan" value=""> -->
                         <p class="package__content--para package__content--para-price">
                             <?= number_format($total_money) ?> <span class="package__content--unit"><?= $Unit ?></span>
                         </p>

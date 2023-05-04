@@ -14,6 +14,7 @@
                                     <!-- <input placeholder="Search On All" type="text" name="" id="search-input" class="my_order__inp"> -->
                                     <div id="products__list" class="order__content col-l-12 col-md-12 col-sm-12">
                                 <?php
+                                    $count = 0;
                                     foreach(getAllMyOrderDetails($username) as $row){
                                         $OrderList_ID = $row['OrderList_ID'];
                                         $Product_ID = $row['Product_ID'];
@@ -57,7 +58,15 @@
                                                     </div>
                                                 </a>
                                                 <?php
+                                                $count++;
                                         }
+                                    ?>
+
+                                    <?php
+                                        $dataCus = getCustomerByUsername($username);
+                                        $Cus_Level = $dataCus['Customer_Level'];
+                                        if($count > 10 && $Cus_Level < 2) updateCusLevel($username, 2);
+                                        if($count > 20 && $Cus_Level < 3) updateCusLevel($username, 3);
                                     ?>
                                     </div>
                                     

@@ -221,6 +221,16 @@
             sqlsrv_close($conn);
         }
     }
+
+    function updateCusLevel($username, $level){
+        $conn = open_Database();
+        $query = "update CUSTOMER_ACCOUNT
+        set Customer_Level = '$level'
+        where UserName = '$username'";
+
+        sqlsrv_query($conn, $query);
+        sqlsrv_close($conn);
+    }
     
     function getName($username): string{
         $conn = open_Database();

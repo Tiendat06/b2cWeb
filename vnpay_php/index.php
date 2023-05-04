@@ -17,7 +17,7 @@
     foreach(getProductInOrderListDetails($username) as $row){
         $money = $row['Total_Money'];
         $Unit = $row['Unit'];
-        echo $money;
+        // echo $money;
         if($Unit == 'USD') $money = $money * $USD;
         else if($Unit == 'KRW') $money = $money * $KRW;
         array_push($total_money, $money);

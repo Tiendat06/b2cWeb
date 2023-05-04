@@ -13,6 +13,7 @@
                 $Remain_Quan = $Product_Quan - $Quan;
                 if($Remain_Quan < 0){
                     header('location: index.php?page=my_package');
+                    break;
                 }else{
                     updateOrderDetailsList($orderList_ID, $product_ID, $Quan);
                 }

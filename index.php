@@ -68,6 +68,8 @@
                     break;
                 case 'forgot_pass_change': include('./page/login_signup/forgot_pass_model/forgot_pass_change.php');
                     break;
+                case 'vnpay': include('./vnpay_php/index.php');
+                    break;
                 default:
                     include('./page/customer/products.php');
                     break;

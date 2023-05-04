@@ -80,7 +80,7 @@
                                         <img class="w-25" src="./assets/img/cash-payment.jpg" alt="" srcset="">
                                     </label>
 
-                                    <label for="vnpay" id="<?= getPaymentMethod('VNPay') ?>" class="package__payment--method-check">
+                                    <label onclick="onClickVNPay(id)" for="vnpay" id="<?= getPaymentMethod('VNPay') ?>" class="package__payment--method-check">
                                         <input value="VNPay" type="radio" value="" name="payment-method" id="vnpay" required>
                                         VNPay
                                         <img class="w-25" src="./assets/img/vnpay-payment.jpg" alt="" srcset="">
@@ -110,6 +110,11 @@
                     function onClickCash(payment_id){
                         let payment_btn = document.getElementById('package__payment--btn');
                         payment_btn.href = `?page=my_package_order&PM=${payment_id}`;
+                    }
+
+                    function onClickVNPay(payment_id){
+                        let payment_btn = document.getElementById('package__payment--btn');
+                        payment_btn.href = `/CNPMB2C/vnpay_php/?PM=${payment_id}`;
                     }
                 </script>
                 <?php 

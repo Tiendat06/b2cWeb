@@ -72,7 +72,7 @@
 
                             <div class="send-mail__btn">
                                 <button name="send-mail__btn--verify" class="bg-success send-mail__btn--verify">Verify</button>
-                                <button name="send-mail__btn--resend" class="bg-success send-mail__btn--resend">Resend</button>
+                                <a href="?page=forgot_pass_send_mail&email=<?= $email ?>" name="send-mail__btn--resend" class="bg-success send-mail__btn--resend">Resend</a>
                             </div>
                         </div>
 

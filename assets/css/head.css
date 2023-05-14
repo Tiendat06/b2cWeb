@@ -200,6 +200,19 @@
     padding: 10px;
 }
 
+.send-mail__btn--resend{
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    /* width: 30%; */
+    text-decoration: none;
+    color: #fff;
+}
+
+.send-mail__btn--resend:hover{
+    color: #fff!important;
+}
+
 .change-pass__container{
     background: url('../img/bg_login.jpeg');
 }
@@ -900,6 +913,22 @@
     border-radius: 10px;
     padding: 5px;
     outline: 1px solid var(--bg-color);
+}
+
+/* =======================<<user account>>===================== */
+
+.user--bg{
+    background: url('../img/phone_user.png');
+    background-repeat: no-repeat;
+    background-position: center top;
+}
+
+.user__inp{
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid var(--bg-color);
+    font-size: 1.5rem;
+
 }
 
 /* ===============<<Check good>>================ */

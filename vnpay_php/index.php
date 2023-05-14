@@ -2,6 +2,31 @@
     ob_start();
     session_start();
     include('../database/connect.php');
+
+    if(isset($_GET['PM'])){
+        if(checkPayMentID($_GET['PM'])){
+            $payment_ID = $_GET['PM'];
+            $username = $_SESSION['login_user'];
+            $orderList_ID = $_SESSION['OrderList_ID'];
+            $Remain_Quan = -1;
+
+            foreach(getProductInOrderListDetails($username) as $row){
+                $product_ID = $row['Product_ID'];
+                $Quan = $row['Quantities'];
+                $Product_Quan = $row['Product_Quantities'];
+                $Remain_Quan = $Product_Quan - $Quan;
+                if($Remain_Quan < 0){
+                    header('location: /CNPMB2C/index.php?page=my_package');
+                    break;
+                }
+            }
+        }else{
+            header('location:  /CNPMB2C/index.php?page=my_package');
+        }
+    }else{
+        header('location:  /CNPMB2C/index.php?page=my_package');
+    }
+    
     if(isset($_GET['PM'])){
         $_SESSION['PM'] = $_GET['PM'];
     }else{
@@ -31,6 +56,7 @@
     $cus_Phone = $dataAcc['Customer_Phone'];
     $cus_DOB = $dataAcc['Customer_Birth'];
     $cus_Sex = $dataAcc['Customer_Gender'];
+
 
 ?>
 

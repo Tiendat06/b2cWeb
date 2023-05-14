@@ -38,6 +38,8 @@
     <?php
         if(isset($_GET['page'])){
             switch($_GET['page']){
+                case "user_account": include('./page/customer/user_account.php');
+                    break;
                 case 'main_page': include('./page/customer/main_page.php');
                     break;
                 case 'products': include('./page/customer/products.php');

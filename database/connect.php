@@ -159,6 +159,20 @@
         sqlsrv_close($conn);
     }
 
+    function getUser($username): array{
+        $conn = open_Database();
+        $data = array();
+        $query = "select * from CUSTOMER, CUSTOMER_ACCOUNT
+        where CUSTOMER.Customer_ID = CUSTOMER_ACCOUNT.Customer_ID
+        and CUSTOMER_ACCOUNT.UserName = '$username'";
+        $result = sqlsrv_query($conn, $query);
+        while($row = sqlsrv_fetch_array($result)){
+            $data = $row;
+        }
+        sqlsrv_close($conn);
+        return $data;
+    }
+
     function getCusByEmail($email){
         $conn = open_Database();
         $query = "select * from CUSTOMER, CUSTOMER_ACCOUNT 
@@ -183,6 +197,59 @@
 
         sqlsrv_query($conn, $query);
         sqlsrv_close($conn);
+    }
+
+    function getCusIDByUserName($username):string{
+        $conn = open_Database();
+        $query = "select * from CUSTOMER_ACCOUNT
+        where UserName = '$username'";
+        $data = array();
+        
+        $result = sqlsrv_query($conn, $query);
+        while($row = sqlsrv_fetch_array($result)){
+            $data = $row;
+        }
+        sqlsrv_close($conn);
+        return $data['Customer_ID'];
+    }
+
+    function checkPass($pass, $username): bool{
+        $conn = open_Database();
+        $query = "select * from CUSTOMER_ACCOUNT
+        where Account_Password = '$pass' and UserName = '$username'";
+        $data = array();
+        
+        $result = sqlsrv_query($conn, $query);
+        $row = sqlsrv_fetch_array($result);
+        while($row){
+            return true;
+        }
+        sqlsrv_close($conn);
+        return false;
+    }
+
+    function updateInfor($username, $name, $dob, $gender, $address, $email, $phone, $pass){
+        $conn = open_Database();
+        $cus_ID = getCusIDByUserName($username);
+        // echo $cus_ID;
+        $query = "update CUSTOMER
+        set Customer_Name = '$name',
+        CUSTOMER.Customer_Birth = '$dob',
+        CUSTOMER.Customer_Gender = '$gender',
+        CUSTOMER.Customer_Address = '$address',
+        CUSTOMER.Customer_Email = '$email',
+        CUSTOMER.Customer_Phone = '$phone'
+        where CUSTOMER.Customer_ID= '$cus_ID'";
+
+        sqlsrv_query($conn, $query);
+        if($pass != null){
+            $query = "update CUSTOMER_ACCOUNT
+            set Account_Password = '$pass'
+            where Customer_ID = '$cus_ID'";
+            sqlsrv_query($conn, $query);
+        }
+        sqlsrv_close($conn);
+
     }
 
     function updateAccCodeForgotAgain($code, $Cus_ID){
@@ -730,6 +797,49 @@
         return $code;
     }
     
+
+    function checkProductInOrderDetails($product_ID, $username):bool{
+        $conn = open_Database();
+        $max_Order_List_ID = getMaxOrderListID($username);
+        $query = "select * from ORDER_LIST_DETAILS where 
+        Product_ID = '$product_ID' and OrderList_ID = '$max_Order_List_ID'";
+
+        $result = sqlsrv_query($conn, $query);
+
+        $row = sqlsrv_fetch_array($result);
+        if($row){
+            return true;
+        }
+        sqlsrv_close($conn);
+
+        return false;
+    }
+
+
+    function updateOrderDetailsForDuplicateProduct($product_ID, $username, $Quan, $Price){
+        $conn = open_Database();
+        $max_order_list_id = getMaxOrderListID($username);
+        $order_list_details = getOneOrderDetails($product_ID, $max_order_list_id);
+        // $Mobile_Product = getMobileProduct($product_ID);
+        $order_list_price = $order_list_details["Total_Money"];
+        
+
+        $order_list_Quan = $order_list_details["Quantities"];
+        $total = intval($order_list_Quan) + intval($Quan);
+        
+        $total_Money = floatval($order_list_price) + floatval($Price + $Quan);
+        $query = "update ORDER_LIST_DETAILS
+        set Quantities = '$total',
+        Total_Money = '$total_Money'
+        where Product_ID = '$product_ID'
+        and OrderList_ID = '$max_order_list_id'";
+
+        sqlsrv_query($conn, $query);
+        sqlsrv_close($conn);
+    }
+
+    
+
     function getNewURL(): string{
         $current_url = "http";
         if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')

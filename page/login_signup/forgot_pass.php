@@ -13,18 +13,23 @@
                         <?php
                             if(isset($_POST['forgot-pass__btn'])){
                                 if(!empty($_POST['forgot-pass__email'])) {
-                                    $email = $_POST['forgot-pass__email'];
-                                    $_SESSION['email'] = $email;
-                                    header('location: ?page=forgot_pass_send_mail&email='.$email);
+                                    if(checkEmail($_POST['forgot-pass__email'])){
+                                        $email = $_POST['forgot-pass__email'];
+                                        $_SESSION['email'] = $email;
+                                        header('location: ?page=forgot_pass_send_mail&email='.$email);
+                                    }else{
+                                        ?>
+                                    <p style="color: red; text-align:center; font-weight:bold;" class="col-l-12 col-md-12 col-sm-12" >Invalid Email</p>
+                                    <?php
+                                    }
                                 }else{
                                     ?>
-                                    <p style="color: red; text-align:center; font-weight:bold;" >Email cannot be blanked</p>
+                                    <p style="color: red; text-align:center; font-weight:bold;" class="col-l-12 col-md-12 col-sm-12">Email cannot be blanked</p>
                                     <?php
                                 }
                             }
                         ?>
     
-                        <!-- href="?page=forgot_pass_send_mail&email" -->
                         <button name="forgot-pass__btn" class="bg-success forgot-pass__btn">SEND</button>
                     </div>
                 </div>

@@ -91,6 +91,6 @@
         
     </footer>
     <div class="footer__bottom col-l-12 col-md-12 col-sm-12">
-    <span class="footer__bottom--para">Copy Right &copy; 2023 - belongs to Group 10 Sofware Engineering</span>
+    <span class="footer__bottom--para">Copy Right &copy; <?= date('Y') ?> - belongs to Group 10 Sofware Engineering</span>
     </div>
 </body>

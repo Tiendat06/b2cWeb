@@ -15,7 +15,7 @@
         $dataOD = getOneOrderDetails($product_ID, $OrderList_ID);
         $Quan = $dataOD['Quantities'];
         // $delivery_date = $dataOD['Delivery_Date'];
-        $date = new DateTime($dataOD['Delivery_Date']->format('Y-m-d'));
+        $date = new DateTime($dataOD['Delivery_Date']->format('d-m-Y'));
         $delivery_date = $date->format('d-m-Y');
         $total_money = $dataOD['Total_Money'];
 
@@ -61,7 +61,14 @@
         $bg_success_delivery = 'bg-success';
 
     }
-    if($delivery_date == date("d-m-Y", strtotime("-3 day"))){
+    // echo date($delivery_date, strtotime("+3 days"));
+    // die;
+    // echo date('d-m-Y');
+    // die;
+    // echo $delivery_date + 3;
+    // echo date('d-m-Y', strtotime($delivery_date.'+3 days'));
+    // die;
+    if(date('d-m-Y') >= date('d-m-Y', strtotime($delivery_date.'+3 days'))){
         $text_success_confirm = 'text-success';
         $bd_success_confirm = 'border-success';
 

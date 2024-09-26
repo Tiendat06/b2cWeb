@@ -63,8 +63,10 @@
     
                                 <?php
                                 if(isset($_POST['logout__btn'])){
-                                    unset($_SESSION['login_user']);
-                                    unset($_SESSION['login_pass']);
+                                    // unset($_SESSION['login_user']);
+                                    // unset($_SESSION['login_pass']);
+                                    session_unset();
+                                    session_destroy();
                                     header('location: index.php?page=login');
                                 }
                             }
